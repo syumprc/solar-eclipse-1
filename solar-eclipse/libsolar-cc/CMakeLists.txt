@@ -1,6 +1,10 @@
 project(solar-cc)
+set (CC_COMPILER g++-7)
+if(EXISTS "$ENV{CC_COMPILER}") 
+	set (CC_COMPILER $ENV{CC_COMPILER})
+endif(EXISTS "$ENV{CC_COMPILER}") 
 
-SET(CMAKE_CXX_COMPILER /usr/bin/g++-7)
+SET(CMAKE_CXX_COMPILER ${CC_COMPILER})
 include_directories(../include)
 set(CC_FLAGS -O2 -std=c++11 -fopenmp  -DGPU_TOOLS  -m64  -I../include -DUSE_SAFELIB -fexceptions -DTR1 -DLINUX64 -DUSE_SAFELIB  -I${MKLROOT}/include/ -DEIGEN_USE_MKL_ALL)
 set(CC_FILES alnormc.cc               define.cc      fisherpedigree.cc  ibd.cc          loglike.cc     model.cc           parameter.cc          scale.cc        solarfilecmd.cc        token.cc
