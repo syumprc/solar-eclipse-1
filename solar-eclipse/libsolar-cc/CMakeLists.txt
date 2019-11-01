@@ -1,8 +1,8 @@
 project(solar-cc)
 set (CC_COMPILER g++-7)
-if(EXISTS "$ENV{CC_COMPILER}") 
+if(DEFINED ENV{CC_COMPILER}) 
 	set (CC_COMPILER $ENV{CC_COMPILER})
-endif(EXISTS "$ENV{CC_COMPILER}") 
+endif() 
 
 SET(CMAKE_CXX_COMPILER ${CC_COMPILER})
 include_directories(../include)
