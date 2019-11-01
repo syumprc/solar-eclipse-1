@@ -5,7 +5,7 @@ add_subdirectory (libsolar-c)
 add_subdirectory (libsolar-cc)
 add_executable(solarmain solarmain.c)
 set (C_COMPILER gcc-7)
-if(EXISTS "$ENV{C_COMPILER}") 
+if(DEFINED ENV{C_COMPILER}) 
 	set (C_COMPILER $ENV{C_COMPILER})
 endif(EXISTS "$ENV{C_COMPILER}") 
 	
