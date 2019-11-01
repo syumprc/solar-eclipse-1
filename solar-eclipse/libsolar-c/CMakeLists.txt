@@ -1,5 +1,10 @@
 project(solar-c)
-SET(CMAKE_C_COMPILER /usr/bin/gcc-7)
+set (C_COMPILER gcc-7)
+if(EXISTS "$ENV{C_COMPILER}") 
+	set (C_COMPILER $ENV{C_COMPILER})
+endif(EXISTS "$ENV{C_COMPILER}") 
+
+SET(CMAKE_C_COMPILER ${C_COMPILER})
 include_directories(./include)
 set(C_FLAGS -std=c99 -m64 -O2 -I../include -DUSE_SAFELIB -fexceptions)
 set(C_FILES ccuserid.c       cplink_converter.c  fdate.c        mehd.c  ncdf.c  nrutil.c    plinkio.c   safelib.c    tclgr.c     w_mehd.c
